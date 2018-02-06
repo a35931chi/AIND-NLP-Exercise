@@ -61,7 +61,7 @@ def fetch_object(service, obj_type, obj_name, create=False, create_args={}, **fe
     obj = None
     obj_id = None
     obj_list = service.__getattribute__(list_methods[obj_type])(**fetch_args)
-    for o in obj_list[obj_type + "s"]:
+    for o in obj_list[obj_type]:
         if o["name"] == obj_name:
             obj = o
             obj_id = obj[obj_type + "_id"]
@@ -80,4 +80,4 @@ def fetch_object(service, obj_type, obj_name, create=False, create_args={}, **fe
         obj_id = obj[obj_type + "_id"]
         print("Created {}: {} ({})".format(obj_type, obj_name, obj_id))
     
-    return obj, obj_id
+return obj, obj_id
